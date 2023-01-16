@@ -1,0 +1,31 @@
+/* body {
+    margin: 0;
+} */
+
+/* input{
+    display: block;
+    margin-top: 40px;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+button{
+    margin-top: 40px;
+        margin-left: 50%;
+        margin-right: 50%;
+} */
+
+.wrap{
+    margin-top: 0;
+    background-color: blueviolet;
+}
+
+.search-form{
+    display: flex;
+    gap: 15px;
+    /* text-align: center; */
+    margin-top: 40px;
+    margin-left: 50%;
+    margin-right: 50%;
+
+}

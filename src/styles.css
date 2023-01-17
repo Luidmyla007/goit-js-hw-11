@@ -18,6 +18,8 @@ button{
 .wrap{
     margin-top: 0;
     background-color: blueviolet;
+    padding-top: 15px;
+    padding-bottom: 50px;
 }
 
 .search-form{

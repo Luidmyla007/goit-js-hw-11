@@ -2,18 +2,18 @@ body {
     margin: 0;
 }
 
-.wrap{
+ .wrap{
     margin-top: 0;
-    background-color: #191970;
-    padding-top: 15px;
+    background-color: #4169E1;
+    padding-top: 50px;
     padding-bottom: 50px;
-}
+  
+} 
 
 .search-form{
     display: flex;
     gap: 15px;
-    margin-top: 40px;
-    margin-left: 50%;
-    margin-right: 50%;
+     margin-left: 50%;
+    margin-right: 50%; 
 
 }

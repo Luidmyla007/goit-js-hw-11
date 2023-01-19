@@ -1,10 +1,10 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import { fetchPhotos } from './fetchPhotos.js'
-// my key 32917546-69d1ddfd267a57e0819ed8262
-// https://pixabay.com/api/?key=32917546-69d1ddfd267a57e0819ed8262&q=cat&image_type=photo&orientation=horizontal&safesearch=true
+import { fetchPhotos } from './fetchPhotos.js';
+import { renderGallery } from './renderGallery.js';
 
-const a = 25;
+
+const a = 26;
 console.log(a);
 
 const searchForm = document.querySelector(".search-form");
@@ -15,6 +15,7 @@ function onSubmit(event) {
   const { searchQuery } = event.currentTarget.elements;
   const name = searchQuery.value;
  
+ 
 
   
 //   if (name === '') {
@@ -22,8 +23,9 @@ function onSubmit(event) {
 //   }
  fetchPhotos(name)
     .then(data => {
-      console.log(data)
-     
+      console.log(data);
+      myGallery.insertAdjacentHTML('beforeend', renderGallery(data))
+      
       })
       .catch(badRequest)
     }

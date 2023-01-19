@@ -1,5 +1,4 @@
 import Notiflix from 'notiflix';
-import axios from 'axios';
 import { fetchPhotos } from './fetchPhotos.js';
 import { renderGallery } from './renderGallery.js';
 
@@ -8,26 +7,38 @@ const a = 26;
 console.log(a);
 
 const searchForm = document.querySelector(".search-form");
+const load = document.querySelector('.load-more');
+let page = 1;
+const perPage = 40;
+
+// load.addEventListener('click', onLoad);
+
+
+fetchPhotos()
+  .then(({ data }) => {
+    console.log(data);
+    renderGallery( data.hits )
+    load.hidden = false
+  })
+.catch(error => console.log(error))
+
+
 
 searchForm.addEventListener('submit', onSubmit);
 function onSubmit(event) {
   event.preventDefault();
   const { searchQuery } = event.currentTarget.elements;
   const name = searchQuery.value;
- 
- 
-
-  
-//   if (name === '') {
-//     return (countryList.innerHTML = ''), (countryInfo.innerHTML = '')
-//   }
- fetchPhotos(name)
+     if (name === '') {
+    return (myGallery.innerHTML = '')
+    }
+  fetchPhotos(name)
     .then(data => {
-      console.log(data);
-      myGallery.insertAdjacentHTML('beforeend', renderGallery(data))
+       console.log(data);
+      renderGallery(data.hits);
       
       })
-      .catch(badRequest)
+      //  .catch(badRequest)
     }
 
 

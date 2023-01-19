@@ -23,7 +23,7 @@ export function renderGallery(photos) {
         </div>`
     })
         .join('')
-    return markup
-    //  return myGallery.insertAdjacentHTML('beforeend', markup)
+   
+     myGallery.insertAdjacentHTML('beforeend', markup)
   
 }

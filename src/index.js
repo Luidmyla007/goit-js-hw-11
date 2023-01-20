@@ -3,24 +3,25 @@ import { fetchPhotos } from './fetchPhotos.js';
 import { renderGallery } from './renderGallery.js';
 
 
-const a = 26;
+const a = 276;
 console.log(a);
 
 const searchForm = document.querySelector(".search-form");
-const load = document.querySelector('.load-more');
+const loadBtn = document.querySelector('.load-more');
+loadBtn.hidden = true;
 let page = 1;
 const perPage = 40;
 
-// load.addEventListener('click', onLoad);
+// loadBtn.addEventListener('click', onLoad);
 
 
-fetchPhotos()
-  .then(({ data }) => {
-    console.log(data);
-    renderGallery( data.hits )
-    load.hidden = false
-  })
-.catch(error => console.log(error))
+// fetchPhotos()
+//   .then(({ data }) => {
+//     console.log(data);
+//     renderGallery( data.hits )
+//     load.hidden = false
+//   })
+// .catch(error => console.log(error))
 
 
 
@@ -31,14 +32,21 @@ function onSubmit(event) {
   const name = searchQuery.value;
      if (name === '') {
     return (myGallery.innerHTML = '')
-    }
-  fetchPhotos(name)
-    .then(data => {
-       console.log(data);
-      renderGallery(data.hits);
-      
+  }
+  
+  fetchPhotos(name, page, perPage)
+    .then(({ data }) => {
+      if (data.totalHits === 0) {
+        emptyRequest()
+      }
+      else {
+        renderGallery(data.hits);
+        if (data.totalHits > perPage) {
+          loadBtn.hidden = false;
+        }
+      }
       })
-      //  .catch(badRequest)
+       .catch(error => console.log(error))
     }
 
 
@@ -52,6 +60,6 @@ function onSubmit(event) {
 //   }
 // }
 
-function badRequest() {
+function emptyRequest() {
   Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
 }

@@ -3,7 +3,7 @@
 // https://pixabay.com/api/?key=32917546-69d1ddfd267a57e0819ed8262&q=cat&image_type=photo&orientation=horizontal&safesearch=true
 
 import axios from 'axios';
-export { fetchPhotos }
+export { fetchPhotos };
 
 const BASE_URL = 'https://pixabay.com/api/';
 const MY_KEY = '32917546-69d1ddfd267a57e0819ed8262&';

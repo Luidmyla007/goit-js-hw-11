@@ -4,7 +4,8 @@ export { renderGallery }
 function renderGallery(images) {
   const markup = images
     .map(({webformatURL, tags, likes, views, comments, downloads}) => {
-            return `        
+      return `  
+          <div class="gallery-wrap">      
           <div class="gallery-item">
             <img class="gallery-item__img" src="${webformatURL}" alt="${tags}" loading="lazy" />
             <div class="info">
@@ -13,7 +14,8 @@ function renderGallery(images) {
               <p class="info-item"><b>Comments</b>${comments}</p>
               <p class="info-item"><b>Downloads</b>${downloads}</p>
             </div>
-          </div>        
+          </div>  
+          </div>      
       `
     })
     .join('')

@@ -40,7 +40,6 @@ const searchQuery = document.querySelector('input[name="searchQuery"]');
 const loadBtn = document.querySelector('.load-more');
 loadBtn.hidden = true;
 let query = searchQuery.value;
-let page = 1;
 const perPage = 40;
 
 
@@ -49,6 +48,7 @@ searchForm.addEventListener('submit', onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
+  let page = 1;
   myGallery.innerHTML = '';
   const { elements: {
     searchQuery },
